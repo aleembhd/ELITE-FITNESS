@@ -577,7 +577,7 @@ function Facilities() {
       alt: "Boxing Ring - Professional boxing and combat training",
     },
     {
-      src: "/images/about-gym.jpg",
+      src: "/images/gallery-6.jpg",
       alt: "Group Fitness - Energizing group workout sessions",
     },
   ];
@@ -1023,7 +1023,7 @@ function Contact({
   phoneNumber: string;
 }) {
   // Official gym email
-  const gymEmail = "officialtheprivategym@gmail.com";
+  const gymEmail = "Elitegym1122@gmail.com";
   
   // Form state
   const [formData, setFormData] = useState({
@@ -1064,7 +1064,7 @@ function Contact({
 
       await emailjs.send(
         'service_4bp2k2d',
-        'template_n3dm64a',
+        'template_s5e7lfe',
         templateParams,
         'hDXaDgCVB9p89RheX'
       );
@@ -1098,9 +1098,9 @@ function Contact({
         >
           {/* Simple Google Maps embed (no API key) */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.888014799759!2d78.56855207498371!3d17.32095148355493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba16f2f1c6f95%3A0x53fd316ae1f85289!2sTHE%20PRIVATE%20GYM!5e0!3m2!1sen!2sin!4v1761382216687!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.5988727568442!2d78.5693616!3d17.3348926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba1fed936954d%3A0xee6487ce2564de88!2sElite%20Gym%20Vanasthalipuram!5e0!3m2!1sen!2sin!4v1761999849723!5m2!1sen!2sin"
             width="600"
-            height="400"
+            height="450"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
@@ -1381,7 +1381,7 @@ function Logo({ name }: { name: string }) {
 
 export default function Page() {
   const [gymName, setGymName] = useState("ELITE GYM");
-  const [phoneNumber, setPhoneNumber] = useState("+919550551038");
+  const [phoneNumber, setPhoneNumber] = useState("8297771112");
   const [dialogOpen, setDialogOpen] = useState(false);
 
   // Load gym name and phone number from localStorage on component mount

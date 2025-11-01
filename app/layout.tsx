@@ -41,7 +41,7 @@ export default function RootLayout({
               var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
               v.onload = function() {
                 window.voiceflow.chat.load({
-                  verify: { projectID: '68fcb1c31e897491bf140dad' },
+                  verify: { projectID: '6905ee1a7690bc42cdb19ddf' },
                   url: 'https://general-runtime.voiceflow.com',
                   versionID: 'production',
                   voice: {
