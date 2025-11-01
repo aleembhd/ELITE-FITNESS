@@ -1141,7 +1141,7 @@ function Contact({
               variants={fadeInUp}
               transition={{ delay: 0.4, ...baseTransition }}
             >
-              <MapPin className="h-4 w-4" aria-hidden /> Plot No. 300 & 301, Vaidehinagar, Saheb Nagar Kalan, B.N. Reddy Nagar, Hyderabad - 500 070, Telangana
+              <MapPin className="h-4 w-4" aria-hidden /> D.No 298, Prashanth Nagar, Above Reliance Fresh, Vanasthalipuram Main Road, Hyderabad 500070
             </motion.p>
             <motion.p
               variants={fadeInUp}
@@ -1271,7 +1271,7 @@ function Footer({
           </nav>
           <div className="flex items-center gap-3 md:justify-end">
             <a
-              href="https://www.instagram.com/theprivategym.official?igsh=YW10MDN5Y3RlZXZ2"
+              href="https://www.instagram.com/elitegymvanasthalipuram/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
