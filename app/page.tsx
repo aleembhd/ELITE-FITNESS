@@ -800,7 +800,7 @@ function Pricing() {
   const plans = [
     {
       name: "1 Month",
-      price: "₹3,000",
+      price: "₹2,500",
       period: "",
       features: [
         "Access to gym equipment",
@@ -813,7 +813,7 @@ function Pricing() {
     },
     {
       name: "3 Months",
-      price: "₹7,500",
+      price: "₹6,000",
       period: "",
       features: [
         "All 1 Month features",
@@ -828,7 +828,7 @@ function Pricing() {
     },
     {
       name: "6 Months",
-      price: "₹14,000",
+      price: "₹9,000",
       period: "",
       features: [
         "All 3 Month features",
@@ -842,7 +842,7 @@ function Pricing() {
     },
     {
       name: "12 Months",
-      price: "₹24,000",
+      price: "₹14,000",
       period: "",
       features: [
         "All 6 Month features",
