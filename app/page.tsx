@@ -419,18 +419,12 @@ function Services() {
       image: "/images/Group Classes.png",
       title: "Group Classes",
     },
-    {
-      image: "/images/Boxing.png",
-      title: "Boxing",
-    },
+
     {
       image: "/images/Zumba.png",
       title: "Zumba",
     },
-    {
-      image: "/images/Yoga.png",
-      title: "Yoga",
-    },
+
     {
       image: "/images/Aerobics.png",
       title: "Aerobics",
@@ -443,10 +437,7 @@ function Services() {
       image: "/images/Personal Training.png",
       title: "Personal Training",
     },
-    {
-      image: "/images/Steam Bath.png",
-      title: "Steam Bath",
-    },
+
     {
       image: "/images/Fitness Programs.png",
       title: "Fitness Programs",
@@ -818,7 +809,7 @@ function Pricing() {
       features: [
         "All 1 Month features",
         "Group class access",
-        "Steam bath access",
+
         "Nutrition consultation",
         "Extended hours access",
         "Better value per month",
