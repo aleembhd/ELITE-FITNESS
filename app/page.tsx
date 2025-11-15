@@ -34,6 +34,13 @@ import {
   MapPin,
   Instagram,
   Mail,
+  ChevronLeft,
+  ChevronRight,
+  Award,
+  FileText,
+  ZoomIn,
+  X,
+  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -291,6 +298,362 @@ function Hero({ phoneNumber }: { phoneNumber: string }) {
           {"📍 Located in Vaidehinagar,  B.N. Reddy Nagar, Hyderabad Telangana"}
         </motion.p>
       </div>
+    </section>
+  );
+}
+
+function TrainerSection() {
+  const [selectedCertificate, setSelectedCertificate] = useState<number | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentCertificateIndex, setCurrentCertificateIndex] = useState(0);
+
+  const trainerImages = [
+    {
+      src: "/images/trainer-portrait.jpg",
+      alt: "Puli Kiran - Elite Gym Owner & Certified Trainer",
+      type: "portrait"
+    },
+    {
+      src: "/images/trainer-competition-1.jpg", 
+      alt: "National Bodybuilding Championship Competition",
+      type: "competition"
+    },
+    {
+      src: "/images/trainer-competition-2.jpg",
+      alt: "Bodybuilding Competition Performance", 
+      type: "competition"
+    }
+  ];
+
+  const certificates = [
+    {
+      src: "/images/certificate-1.jpg",
+      title: "Advanced Training Techniques",
+      description: "Certified Fitness Professional"
+    },
+    {
+      src: "/images/certificate-2.jpg", 
+      title: "National Championship Merit",
+      description: "4th Place - National Bodybuilding"
+    },
+    {
+      src: "/images/certificate-3.jpg",
+      title: "Fitness Education Diploma",
+      description: "Certified Gym Instructor"
+    }
+  ];
+
+  const achievements = [
+    "4th Place - National Bodybuilding Championship 2019",
+    "Certified Advanced Fitness Trainer", 
+    "5+ Years Professional Training Experience",
+    "Specialized in Bodybuilding & Strength Training"
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % trainerImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + trainerImages.length) % trainerImages.length);
+  };
+
+  const nextCertificate = () => {
+    setCurrentCertificateIndex((prev) => (prev + 1) % certificates.length);
+  };
+
+  const prevCertificate = () => {
+    setCurrentCertificateIndex((prev) => (prev - 1 + certificates.length) % certificates.length);
+  };
+
+  const openCertificate = (index: number) => {
+    setSelectedCertificate(index);
+  };
+
+  const closeCertificate = () => {
+    setSelectedCertificate(null);
+  };
+
+  return (
+    <section className="scroll-mt-24 bg-background">
+      <div className="mx-auto max-w-6xl px-4 py-12 md:py-20">
+        {/* Section Title */}
+        <motion.h2
+          className="font-heading text-3xl md:text-4xl font-bold text-center mb-12"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          transition={baseTransition}
+        >
+          Our <span className="text-accent">Expert Trainer</span>
+        </motion.h2>
+
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left Side - Amazon Style Image Gallery */}
+          <div className="space-y-4">
+            {/* Main Large Image */}
+            <div className="relative overflow-hidden rounded-2xl bg-card shadow-lg">
+              <div className="aspect-[3/4] relative">
+                <img
+                  src={trainerImages[currentImageIndex].src}
+                  alt={trainerImages[currentImageIndex].alt}
+                  className="h-full w-full object-cover transition-all duration-500"
+                />
+                
+                {/* Achievement Badge Overlay */}
+                <motion.div
+                  className="absolute top-4 left-4 z-10"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="relative">
+                    {/* Badge Image */}
+                    <img
+                      src="/images/badge.png"
+                      alt="4th Place National Champion Badge"
+                      className="w-12 h-12 drop-shadow-lg"
+                    />
+                    
+                    {/* Subtle Glow Effect */}
+                    <div className="absolute inset-0 bg-yellow-400/20 blur-xl rounded-full animate-pulse"></div>
+                  </div>
+                </motion.div>
+                
+                {/* Image Navigation Arrows */}
+                {trainerImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 bottom-16 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors z-20"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 bottom-16 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors z-20"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </>
+                )}
+
+                {/* Image Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                  {trainerImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`h-2 w-2 rounded-full transition-colors ${
+                        index === currentImageIndex ? 'bg-accent' : 'bg-white/50'
+                      }`}
+                      aria-label={`View image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Trainer Name & Title Below Image */}
+            <div className="text-center space-y-1">
+              <h3 className="text-2xl font-bold text-foreground">Puli Kiran</h3>
+              <p className="text-muted-foreground">Elite Gym Owner & Certified Professional Trainer</p>
+            </div>
+
+
+
+            {/* Certificate Gallery - Mobile Only */}
+            <div className="space-y-3 lg:hidden">
+              <h4 className="font-semibold text-foreground text-center">Professional Certifications</h4>
+              <div className="relative overflow-hidden rounded-lg bg-card shadow-lg">
+                <div className="aspect-[4/3] relative">
+                  <button
+                    onClick={() => openCertificate(currentCertificateIndex)}
+                    className="w-full h-full group"
+                  >
+                    <img
+                      src={certificates[currentCertificateIndex].src}
+                      alt={certificates[currentCertificateIndex].title}
+                      className="h-full w-full object-cover transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <ZoomIn className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </button>
+                  
+                  {/* Certificate Navigation Arrows */}
+                  {certificates.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevCertificate}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors"
+                        aria-label="Previous certificate"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={nextCertificate}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors"
+                        aria-label="Next certificate"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </>
+                  )}
+
+                  {/* Certificate Indicators */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    {certificates.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentCertificateIndex(index)}
+                        className={`h-2 w-2 rounded-full transition-colors ${
+                          index === currentCertificateIndex ? 'bg-accent' : 'bg-white/50'
+                        }`}
+                        aria-label={`View certificate ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground text-center">Click certificate to view full size</p>
+            </div>
+
+
+          </div>
+
+          {/* Right Side - Content */}
+          <div className="space-y-6">
+
+            <motion.p
+              className="text-muted-foreground leading-relaxed"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, ...baseTransition }}
+            >
+              Train under the guidance of a national-level bodybuilding champion. Puli Kiran brings 
+              years of competitive experience and certified expertise to help you achieve your fitness 
+              goals. His proven track record in national competitions and advanced training certifications 
+              ensure you receive world-class fitness guidance.
+            </motion.p>
+
+            {/* Achievements List */}
+            <motion.div
+              className="space-y-3"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, ...baseTransition }}
+            >
+              <h4 className="font-semibold text-foreground">Key Achievements</h4>
+              <ul className="space-y-2">
+                {achievements.map((achievement, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <Award className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-muted-foreground">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Certificate Gallery - Desktop Only */}
+            <motion.div
+              className="space-y-4 hidden lg:block"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, ...baseTransition }}
+            >
+              <h4 className="font-semibold text-foreground">Professional Certifications</h4>
+              <div className="relative overflow-hidden rounded-lg bg-card shadow-lg">
+                <div className="aspect-[4/3] relative">
+                  <button
+                    onClick={() => openCertificate(currentCertificateIndex)}
+                    className="w-full h-full group"
+                  >
+                    <img
+                      src={certificates[currentCertificateIndex].src}
+                      alt={certificates[currentCertificateIndex].title}
+                      className="h-full w-full object-cover transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <ZoomIn className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </button>
+                  
+                  {/* Certificate Navigation Arrows */}
+                  {certificates.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevCertificate}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors"
+                        aria-label="Previous certificate"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={nextCertificate}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors"
+                        aria-label="Next certificate"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </>
+                  )}
+
+                  {/* Certificate Indicators */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    {certificates.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentCertificateIndex(index)}
+                        className={`h-2 w-2 rounded-full transition-colors ${
+                          index === currentCertificateIndex ? 'bg-accent' : 'bg-white/50'
+                        }`}
+                        aria-label={`View certificate ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground">Click certificate to view full size</p>
+            </motion.div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+      {/* Certificate Modal */}
+      {selectedCertificate !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+          <div className="relative max-w-4xl max-h-[90vh] w-full">
+            <button
+              onClick={closeCertificate}
+              className="absolute -top-12 right-0 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+              aria-label="Close certificate"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <img
+              src={certificates[selectedCertificate].src}
+              alt={certificates[selectedCertificate].title}
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -1412,6 +1775,7 @@ export default function Page() {
     <main>
       <Navbar gymName={gymName} phoneNumber={phoneNumber} />
       <Hero phoneNumber={phoneNumber} />
+      <TrainerSection />
       <About />
       <Services />
       <Facilities />
