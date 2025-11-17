@@ -276,7 +276,7 @@ function Hero({ phoneNumber }: { phoneNumber: string }) {
           transition={{ delay: 0.2, ...baseTransition }}
         >
           <Button asChild className="rounded-2xl">
-            <a href={`tel:${phoneNumber}`}>Call Now</a>
+            <a href="https://www.google.com/search?sca_esv=d2fa72479429c903&rlz=1C1ONGR_enIN1140IN1140&sxsrf=AE3TifPOYqUehZpvd5ZosvEuRmL9rvm5vA:1763383590738&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E72QWwrTL8OH2_Fyoamr8rBZ9jyy8hhXypnV5sj6Ove4ttgA7ElmSNZZSBFMPyjDgF-w6HTDfu8WlyLZStzg43cyzZn3UYeHlXBBGRav7VYyK37dqw%3D%3D&q=Elite+Gym+Vanasthalipuram+Reviews&sa=X&ved=2ahUKEwiijJ3km_mQAxWZRWcHHaMpNqIQ0bkNegQIMxAE&biw=1396&bih=632&dpr=1.38" target="_blank" rel="noopener noreferrer">Add Review</a>
           </Button>
           <Button
             variant="outline"
@@ -386,7 +386,7 @@ function TrainerSection() {
           viewport={{ once: true }}
           transition={baseTransition}
         >
-          Our <span className="text-accent">Expert Trainer</span>
+          <span className="text-accent">Body Building</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -401,27 +401,29 @@ function TrainerSection() {
                   className="h-full w-full object-cover transition-all duration-500"
                 />
                 
-                {/* Achievement Badge Overlay */}
-                <motion.div
-                  className="absolute top-4 left-4 z-10"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <div className="relative">
-                    {/* Badge Image */}
-                    <img
-                      src="/images/badge.png"
-                      alt="4th Place National Champion Badge"
-                      className="w-12 h-12 drop-shadow-lg"
+                {/* Achievement Badge Overlay - Only on first image */}
+                {currentImageIndex === 0 && (
+                  <motion.div
+                    className="absolute top-4 left-4 z-10"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <div className="relative">
+                      {/* Badge Image */}
+                      <img
+                        src="/images/badge.png"
+                        alt="4th Place National Champion Badge"
+                        className="w-12 h-12 drop-shadow-lg"
                     />
-                    
-                    {/* Subtle Glow Effect */}
-                    <div className="absolute inset-0 bg-yellow-400/20 blur-xl rounded-full animate-pulse"></div>
-                  </div>
-                </motion.div>
+                      
+                      {/* Subtle Glow Effect */}
+                      <d
+                    </div>
+                v>
+                )}tion.di  </mo
                 
                 {/* Image Navigation Arrows */}
                 {trainerImages.length > 1 && (
