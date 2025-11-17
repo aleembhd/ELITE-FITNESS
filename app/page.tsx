@@ -420,10 +420,9 @@ function TrainerSection() {
                     />
                       
                       {/* Subtle Glow Effect */}
-                      <d
                     </div>
-                v>
-                )}tion.di  </mo
+                  </motion.div>
+                )}
                 
                 {/* Image Navigation Arrows */}
                 {trainerImages.length > 1 && (
